@@ -5,13 +5,13 @@ import { Todo } from '../../types/Todo';
 type Props = {
   todo: Todo;
   isSelected: boolean;
-  selectTodo: () => void;
+  onSelectTodo: () => void;
 };
 
 export const TodoListItem: React.FC<Props> = ({
   todo,
   isSelected,
-  selectTodo,
+  onSelectTodo,
 }) => {
   return (
     <tr data-cy="todo">
@@ -42,7 +42,7 @@ export const TodoListItem: React.FC<Props> = ({
             data-cy="selectButton"
             className="button"
             type="button"
-            onClick={selectTodo}
+            onClick={onSelectTodo}
           >
             <span className="icon">
               <i className="far fa-eye" />
@@ -53,7 +53,7 @@ export const TodoListItem: React.FC<Props> = ({
             data-cy="unselectButton"
             className="button"
             type="button"
-            onClick={selectTodo}
+            onClick={onSelectTodo}
           >
             <span className="icon">
               <i className="far fa-eye-slash" />

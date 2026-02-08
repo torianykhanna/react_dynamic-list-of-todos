@@ -1,3 +1,5 @@
+import React from 'react';
+
 export enum FilterState {
   All = 'all',
   Active = 'active',
@@ -17,8 +19,8 @@ export const TodoFilter: React.FC<Props> = ({
   searchQuery,
   onSearchChange,
 }) => {
-  function handleFilterChanged(newFilterValue: string) {
-    onFilterChange(newFilterValue as FilterState);
+  function handleFilterChanged(newFilterValue: FilterState) {
+    onFilterChange(newFilterValue);
   }
 
   function handleSearchChanged(newQuery: string) {
@@ -32,7 +34,9 @@ export const TodoFilter: React.FC<Props> = ({
           <select
             data-cy="statusSelect"
             value={filterValue}
-            onChange={event => handleFilterChanged(event.target.value)}
+            onChange={event =>
+              handleFilterChanged(event.target.value as FilterState)
+            }
           >
             <option value={FilterState.All}>All</option>
             <option value={FilterState.Active}>Active</option>

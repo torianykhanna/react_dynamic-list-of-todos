@@ -10,16 +10,12 @@ type Props = {
 };
 
 export const TodoModal: React.FC<Props> = ({ todo, onModalClose }) => {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
+    setUser(null);
     getUser(todo.userId).then(setUser);
   }, [todo.userId]);
-
-  function handleCloseClick() {
-    onModalClose();
-    setUser(undefined);
-  }
 
   return (
     <div className="modal is-active" data-cy="modal">
@@ -42,7 +38,7 @@ export const TodoModal: React.FC<Props> = ({ todo, onModalClose }) => {
               type="button"
               className="delete"
               data-cy="modal-close"
-              onClick={handleCloseClick}
+              onClick={onModalClose}
             />
           </header>
 

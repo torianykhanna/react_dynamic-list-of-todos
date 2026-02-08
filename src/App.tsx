@@ -26,7 +26,7 @@ export const App: React.FC = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  function handleSelectTodo(todo: Todo) {
+  function handleonSelectTodo(todo: Todo) {
     setSelectedTodo(todo);
   }
 
@@ -64,7 +64,7 @@ export const App: React.FC = () => {
               ) : (
                 <TodoList
                   todos={filteredTodos}
-                  selectTodo={handleSelectTodo}
+                  onSelectTodo={handleonSelectTodo}
                   selectedTodoId={selectedTodo?.id ?? null}
                 />
               )}

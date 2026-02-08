@@ -53,8 +53,8 @@ export const App: React.FC = () => {
               <TodoFilter
                 filterValue={filterValue}
                 searchQuery={searchQuery}
-                setFilterValue={handleFilterChanged}
-                setSearchQuery={handleSearchChanged}
+                onFilterChange={handleFilterChanged}
+                onSearchChange={handleSearchChanged}
               />
             </div>
 
